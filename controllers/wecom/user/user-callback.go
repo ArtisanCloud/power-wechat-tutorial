@@ -15,13 +15,16 @@ import (
 // 回调配置
 // https://work.weixin.qq.com/api/doc/90000/90135/90930
 func CallbackVerify(c *gin.Context) {
-	rs, err := services.WeComContactApp.Server.Serve(c.Request)
+	rs, err := services.WeComContactApp.Server.VerifyURL(c.Request)
 	if err != nil {
 		panic(err)
 	}
 
 	text, _ := ioutil.ReadAll(rs.Body)
 	c.String(http.StatusOK, string(text))
+
+	// 选择2
+	//err = helper.HttpResponseSend(rs, c.Writer)
 
 }
 

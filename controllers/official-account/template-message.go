@@ -36,7 +36,7 @@ func TemplateMessageGetIndustry(c *gin.Context) {
 // https://developers.weixin.qq.com/doc/offiaccount/Message_Management/Template_Message_Interface.html#2
 func TemplateMessageAddTemplate(c *gin.Context) {
 	shortID := c.DefaultQuery("shortID", "TM00015")
-	rs, err := services.OfficialAccountApp.TemplateMessage.AddTemplate(c.Request.Context(), shortID)
+	rs, err := services.OfficialAccountApp.TemplateMessage.AddTemplate(c.Request.Context(), shortID, []string{})
 	if err != nil {
 		panic(err)
 	}

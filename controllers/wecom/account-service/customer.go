@@ -12,7 +12,7 @@ import (
 func APIAccountServiceCustomerBatchGet(c *gin.Context) {
 	externalUserIDList := []string{c.DefaultQuery("externalUserIDList", "matrix-x")}
 
-	res, err := services.WeComApp.AccountServiceCustomer.BatchGet(c.Request.Context(), externalUserIDList)
+	res, err := services.WeComApp.AccountServiceCustomer.BatchGet(c.Request.Context(), externalUserIDList, 1)
 
 	if err != nil {
 		panic(err)
